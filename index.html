@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Textra Solution — Technology. People. Process. Growth.</title>
+  <meta name="description" content="Practical solutions built around your business. Integrated business solutions across technology development, customer service operations, HR, and marketing." />
+  <meta name="theme-color" content="#0F172A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    }
+  </style>
+  <style>
+    :root {
+      --tx-blue: #2563eb;
+      --tx-emerald: #059669;
+      --tx-indigo: #4f46e5;
+      --tx-rose: #e11d48;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    ::selection { background: #bfdbfe; color: #0f172a; }
+
+    .mesh-hero {
+      background:
+        radial-gradient(ellipse 80% 60% at 12% 18%, rgba(37, 99, 235, 0.18), transparent 55%),
+        radial-gradient(ellipse 70% 50% at 88% 8%, rgba(79, 70, 229, 0.16), transparent 50%),
+        radial-gradient(ellipse 50% 40% at 70% 80%, rgba(14, 165, 233, 0.10), transparent 50%),
+        linear-gradient(180deg, #07111f 0%, #0b1729 55%, #0f1d33 100%);
+    }
+    .grid-overlay {
+      background-image:
+        linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+    }
+    .dot-pattern {
+      background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .delay-1 { animation-delay: 0.08s; }
+    .delay-2 { animation-delay: 0.16s; }
+    .delay-3 { animation-delay: 0.24s; }
+    .delay-4 { animation-delay: 0.32s; }
+    @keyframes rise {
+      to { opacity: 1; transform: none; }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .fade-up.in { opacity: 1; transform: none; }
+
+    .nav-scrolled {
+      background: rgba(255, 255, 255, 0.86) !important;
+      border-bottom-color: rgba(226, 232, 240, 1) !important;
+      box-shadow: 0 8px 30px -18px rgba(15, 23, 42, 0.25);
+    }
+    .nav-scrolled .nav-link { color: #334155; }
+    .nav-scrolled .nav-link:hover { color: #0f172a; }
+    .nav-scrolled .brand-word { color: #0f172a; }
+    .nav-scrolled .brand-sub { color: #64748b; }
+    .nav-scrolled .hamburger span { background: #0f172a; }
+
+    .drawer {
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .drawer.open { transform: translateX(0); }
+    .overlay {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .overlay.open { opacity: 1; pointer-events: auto; }
+
+    .modal-root {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .modal-root.open { opacity: 1; pointer-events: auto; }
+    .modal-card {
+      transform: translateY(16px) scale(0.97);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .modal-root.open .modal-card { transform: none; }
+
+    .svc-card { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+    .svc-card:hover { transform: translateY(-4px); box-shadow: 0 22px 50px -24px rgba(15, 23, 42, 0.28); }
+
+    .badge-chip {
+      transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .badge-chip:hover { transform: translateY(-1px); }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+      border-color: #2563eb;
+    }
+
+    .spin {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .step-line {
+      background: linear-gradient(90deg, #2563eb, #4f46e5, #059669);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .fade-up { opacity: 1; transform: none; animation: none; transition: none; }
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- NAV -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-slate-950/40 backdrop-blur-md transition-all duration-300">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 lg:h-[72px] items-center justify-between">
+        <a href="#top" class="flex items-center gap-2.5 group">
+          <span class="relative grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-500/25">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M2 4h14M9 4v11" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="leading-tight">
+            <span class="brand-word block text-[15px] font-extrabold tracking-tight text-white">Textra Solution</span>
+            <span class="brand-sub hidden sm:block text-[10px] font-medium tracking-wide text-slate-400">Technology · People · Process · Growth</span>
+          </span>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">
+          <a class="nav-link px-3 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-white/5 transition" href="#about">About</a>
+          <a class="nav-link px-3 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-white/5 transition" href="#services">Services</a>
+          <a class="nav-link px-3 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-white/5 transition" href="#why-us">Why Us</a>
+          <a class="nav-link px-3 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-white/5 transition" href="#how-we-work">How We Work</a>
+          <a class="nav-link px-3 py-2 text-sm font-medium text-slate-300 hover:text-white rounded-lg hover:bg-white/5 transition" href="#who-we-work-with">Who We Work With</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="hidden sm:inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 hover:bg-blue-500 transition">
+            Talk to Us
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+          <button id="menuBtn" class="hamburger lg:hidden grid h-10 w-10 place-items-center rounded-xl border border-white/15 bg-white/5" aria-label="Open menu" aria-expanded="false">
+            <span class="flex flex-col gap-1.5">
+              <span id="bar1" class="block h-0.5 w-5 bg-white transition-transform origin-center"></span>
+              <span id="bar2" class="block h-0.5 w-5 bg-white transition-opacity"></span>
+              <span id="bar3" class="block h-0.5 w-5 bg-white transition-transform origin-center"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div id="overlay" class="overlay fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-sm lg:hidden"></div>
+  <aside id="drawer" class="drawer fixed top-0 right-0 z-50 h-full w-[86%] max-w-sm bg-white shadow-2xl lg:hidden flex flex-col">
+    <div class="flex items-center justify-between px-5 h-16 border-b border-slate-200">
+      <span class="font-extrabold text-slate-900">Menu</span>
+      <button id="closeMenu" class="h-10 w-10 grid place-items-center rounded-xl hover:bg-slate-100" aria-label="Close menu">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="flex-1 px-4 py-4 space-y-1" aria-label="Mobile">
+      <a class="drawer-link block rounded-xl px-4 py-3 text-[15px] font-semibold text-slate-700 hover:bg-slate-50" href="#about">About</a>
+      <a class="drawer-link block rounded-xl px-4 py-3 text-[15px] font-semibold text-slate-700 hover:bg-slate-50" href="#services">Services</a>
+      <a class="drawer-link block rounded-xl px-4 py-3 text-[15px] font-semibold text-slate-700 hover:bg-slate-50" href="#why-us">Why Us</a>
+      <a class="drawer-link block rounded-xl px-4 py-3 text-[15px] font-semibold text-slate-700 hover:bg-slate-50" href="#how-we-work">How We Work</a>
+      <a class="drawer-link block rounded-xl px-4 py-3 text-[15px] font-semibold text-slate-700 hover:bg-slate-50" href="#who-we-work-with">Who We Work With</a>
+      <a class="drawer-link block rounded-xl px-4 py-3 text-[15px] font-semibold text-slate-700 hover:bg-slate-50" href="#approach">Our Approach</a>
+      <a class="drawer-link block rounded-xl px-4 py-3 text-[15px] font-semibold text-slate-700 hover:bg-slate-50" href="#contact">Contact</a>
+    </nav>
+    <div class="p-4 border-t border-slate-200">
+      <a href="#contact" class="drawer-link flex items-center justify-center rounded-full bg-blue-600 px-4 py-3 text-sm font-semibold text-white">Talk to Us</a>
+    </div>
+  </aside>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="mesh-hero relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28">
+      <div class="grid-overlay absolute inset-0"></div>
+      <div class="pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl"></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div class="lg:col-span-7">
+            <div class="reveal inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+              </span>
+              <span class="text-[12px] font-semibold tracking-wide text-slate-200">Technology • People • Process • Growth</span>
+            </div>
+
+            <h1 class="reveal delay-1 mt-6 max-w-3xl text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-white leading-[1.08]">
+              Practical solutions built around
+              <span class="bg-gradient-to-r from-blue-300 via-sky-200 to-indigo-300 bg-clip-text text-transparent"> your business.</span>
+            </h1>
+
+            <p class="reveal delay-2 mt-6 max-w-xl text-[17px] leading-relaxed text-slate-300">
+              Integrated business solutions across technology development, customer service operations, HR, and marketing. One partner for cross-functional execution — so work moves faster, handoffs stay clean, and growth stays operationally sound.
+            </p>
+
+            <div class="reveal delay-3 mt-8 flex flex-wrap gap-3">
+              <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-xl shadow-blue-600/30 hover:bg-blue-500 transition">
+                Talk to Us
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+              <a href="#services" class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition">
+                Explore Our Services
+              </a>
+            </div>
+
+            <div class="reveal delay-4 mt-10 flex flex-wrap gap-2.5">
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200">
+                <svg class="h-3.5 w-3.5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Technology that ships
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200">
+                <svg class="h-3.5 w-3.5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                People operations that scale
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200">
+                <svg class="h-3.5 w-3.5 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Processes that hold
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200">
+                <svg class="h-3.5 w-3.5 text-rose-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Growth you can measure
+              </span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 reveal delay-2">
+            <div class="relative">
+              <div class="absolute -inset-4 rounded-[32px] bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-transparent blur-2xl"></div>
+              <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-2xl">
+                <img src="https://images.pexels.com/photos/8297442/pexels-photo-8297442.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Textra Solution team collaborating in a modern office" class="h-80 w-full object-cover lg:h-[420px]" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
+                <div class="absolute bottom-0 inset-x-0 p-5">
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="rounded-2xl border border-white/10 bg-slate-950/60 backdrop-blur-md p-3">
+                      <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Delivery model</p>
+                      <p class="mt-0.5 text-sm font-bold text-white">Integrated execution</p>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-slate-950/60 backdrop-blur-md p-3">
+                      <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Core divisions</p>
+                      <p class="mt-0.5 text-sm font-bold text-white">IT · CS · HR · Marketing</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm">
+            <p class="text-2xl font-extrabold text-white">4</p>
+            <p class="text-xs text-slate-400 mt-1">Integrated service divisions</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm">
+            <p class="text-2xl font-extrabold text-white">1</p>
+            <p class="text-xs text-slate-400 mt-1">Accountable operating partner</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm">
+            <p class="text-2xl font-extrabold text-white">5</p>
+            <p class="text-xs text-slate-400 mt-1">Step delivery framework</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 backdrop-blur-sm">
+            <p class="text-2xl font-extrabold text-white">B2B</p>
+            <p class="text-xs text-slate-400 mt-1">Built for growing companies</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="relative py-20 lg:py-28 bg-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-5 fade-up">
+            <p class="text-sm font-semibold tracking-wide text-blue-600 uppercase">About Textra Solution</p>
+            <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">One Partner. Multiple Business Solutions.</h2>
+            <p class="mt-5 text-slate-600 leading-relaxed">
+              Growing companies rarely have a single problem. They have a stack of them — systems that don’t talk to each other, support that doesn’t scale, people operations that lag behind headcount, and marketing that isn’t tied to how the business actually runs.
+            </p>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              Textra Solution is built for that reality. We combine technology development, customer service operations, HR infrastructure, and marketing execution so you can run the work as one programme — not four disconnected vendors.
+            </p>
+            <div class="mt-8 flex items-center gap-4">
+              <img src="https://images.pexels.com/photos/7792859/pexels-photo-7792859.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Team discussion" class="h-12 w-12 rounded-full object-cover ring-2 ring-white shadow" />
+              <img src="https://images.pexels.com/photos/7681562/pexels-photo-7681562.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Customer service professionals" class="h-12 w-12 rounded-full object-cover ring-2 ring-white shadow -ml-6" />
+              <img src="https://images.pexels.com/photos/6804610/pexels-photo-6804610.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Technology specialist" class="h-12 w-12 rounded-full object-cover ring-2 ring-white shadow -ml-6" />
+              <p class="text-sm text-slate-500 font-medium">Cross-functional teams. Shared ownership.</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 fade-up space-y-4">
+            <div class="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 p-7 sm:p-8 text-white shadow-xl">
+              <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold">Vendor fragmentation</div>
+              <h3 class="mt-4 text-2xl font-extrabold leading-snug">We simplify vendor fragmentation.</h3>
+              <p class="mt-3 text-slate-300 leading-relaxed">
+                Most companies assemble a developer here, an agency there, a CS vendor somewhere else, and HR support on the side. The result is duplicated briefings, unclear ownership, and work that never quite joins up. We simplify that.
+              </p>
+              <p class="mt-3 text-slate-300 leading-relaxed">
+                One briefing. One operating rhythm. Integrated execution instead of siloed agencies.
+              </p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <p class="text-sm font-bold text-slate-900">Siloed agencies</p>
+                <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                  <li class="flex gap-2"><span class="text-slate-400">✕</span> Repeated onboarding</li>
+                  <li class="flex gap-2"><span class="text-slate-400">✕</span> Gaps between functions</li>
+                  <li class="flex gap-2"><span class="text-slate-400">✕</span> No single owner of outcomes</li>
+                </ul>
+              </div>
+              <div class="rounded-3xl border border-blue-200 bg-blue-50 p-6">
+                <p class="text-sm font-bold text-blue-900">Textra model</p>
+                <ul class="mt-3 space-y-2 text-sm text-blue-900/80">
+                  <li class="flex gap-2"><span class="text-blue-600">✓</span> Shared context across teams</li>
+                  <li class="flex gap-2"><span class="text-blue-600">✓</span> Work designed to connect</li>
+                  <li class="flex gap-2"><span class="text-blue-600">✓</span> Practical, accountable delivery</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="relative py-20 lg:py-28 bg-slate-50">
+      <div class="absolute inset-0 dot-pattern opacity-60"></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl fade-up">
+          <p class="text-sm font-semibold tracking-wide text-blue-600 uppercase">Services</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Four divisions. One operating partner.</h2>
+          <p class="mt-4 text-slate-600 leading-relaxed">Each capability can stand on its own. Together they become a complete operating layer for companies that need more than a specialist and less than a bloated agency stack.</p>
+        </div>
+
+        <div class="mt-12 space-y-8">
+
+          <!-- IT -->
+          <article class="svc-card fade-up overflow-hidden rounded-3xl border border-slate-200 bg-white">
+            <div class="grid lg:grid-cols-12">
+              <div class="lg:col-span-4 relative min-h-[240px]">
+                <img src="https://images.pexels.com/photos/6804610/pexels-photo-6804610.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Engineer working on product code" class="absolute inset-0 h-full w-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-950/20 to-blue-950/10"></div>
+                <div class="absolute top-5 left-5">
+                  <span class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-3 py-1 text-xs font-bold text-white">01 · IT Development</span>
+                </div>
+              </div>
+              <div class="lg:col-span-8 p-6 sm:p-8 lg:p-10">
+                <h3 class="text-2xl font-extrabold text-slate-900">Build Technology That Works for Your Business</h3>
+                <p class="mt-3 text-slate-600 leading-relaxed">We design and build the systems your teams actually use — websites, web applications, internal tools, integrations, and the ongoing maintenance that keeps them reliable. No theatre. Just working product.</p>
+                <div class="mt-5 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3">
+                  <p class="text-sm font-semibold text-blue-900">From Idea to Working Product</p>
+                  <p class="mt-1 text-sm text-blue-800/80">Scoped, built, integrated, and supported — with a clear path from brief to production.</p>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Frontend</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Backend</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Web App</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Internal Systems</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">HRMS & Business Systems</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">API Integration</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Database</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Maintenance</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Automation</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Third-Party Integration</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">UI Implementation</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Tech Support</span>
+                </div>
+                <button type="button" data-service="IT Development" class="service-cta mt-7 inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 transition">
+                  Discuss Your Project
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CS -->
+          <article class="svc-card fade-up overflow-hidden rounded-3xl border border-slate-200 bg-white">
+            <div class="grid lg:grid-cols-12">
+              <div class="lg:col-span-4 relative min-h-[240px]">
+                <img src="https://images.pexels.com/photos/7681562/pexels-photo-7681562.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Customer service team wearing headsets" class="absolute inset-0 h-full w-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/80 via-emerald-950/20 to-emerald-950/10"></div>
+                <div class="absolute top-5 left-5">
+                  <span class="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold text-white">02 · Customer Service</span>
+                </div>
+              </div>
+              <div class="lg:col-span-8 p-6 sm:p-8 lg:p-10">
+                <h3 class="text-2xl font-extrabold text-slate-900">Customer Support That Represents Your Brand</h3>
+                <p class="mt-3 text-slate-600 leading-relaxed">Your support team is often the loudest expression of your brand. We build and operate customer service functions that are trained, documented, and measured — so customers get consistent answers and your internal team stays focused on the product.</p>
+                <div class="mt-5 rounded-2xl border border-emerald-100 bg-emerald-50 px-4 py-3">
+                  <p class="text-sm font-semibold text-emerald-900">Flexible Support for Growing Businesses</p>
+                  <p class="mt-1 text-sm text-emerald-800/80">Scale coverage, channels, and hours without standing up a full in-house operation overnight.</p>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Customer Enquiry Management</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Email Support</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Live Chat Support</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Social Media Support</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Complaint Handling</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Ticket Management</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">After-Sales</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Order Enquiries</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Follow-Up</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">CS Admin</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Escalation</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">SOP Development</span>
+                </div>
+                <button type="button" data-service="Customer Service Outsourcing" class="service-cta mt-7 inline-flex items-center gap-2 rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-emerald-500 transition">
+                  Build Your Support Team
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- HR -->
+          <article class="svc-card fade-up overflow-hidden rounded-3xl border border-slate-200 bg-white">
+            <div class="grid lg:grid-cols-12">
+              <div class="lg:col-span-4 relative min-h-[240px]">
+                <img src="https://images.pexels.com/photos/7691751/pexels-photo-7691751.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="People operations team reviewing documents" class="absolute inset-0 h-full w-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-indigo-950/80 via-indigo-950/20 to-indigo-950/10"></div>
+                <div class="absolute top-5 left-5">
+                  <span class="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-3 py-1 text-xs font-bold text-white">03 · HR Services</span>
+                </div>
+              </div>
+              <div class="lg:col-span-8 p-6 sm:p-8 lg:p-10">
+                <h3 class="text-2xl font-extrabold text-slate-900">Stronger People Operations. Better Business.</h3>
+                <div class="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3">
+                  <p class="text-sm font-semibold text-amber-900">Scope note</p>
+                  <p class="mt-1 text-sm text-amber-900/80">Our HR services focus on the employee lifecycle and internal HR operations. Recruitment services are not included.</p>
+                </div>
+                <p class="mt-4 text-slate-600 leading-relaxed">We help companies professionalise the people layer — documentation, onboarding, policies, performance, compliance, and the systems that keep it all organised. The goal is an HR function that can grow without becoming a bottleneck.</p>
+                <div class="mt-5 rounded-2xl border border-indigo-100 bg-indigo-50 px-4 py-3">
+                  <p class="text-sm font-semibold text-indigo-900">HR Infrastructure That Grows With Your Company</p>
+                  <p class="mt-1 text-sm text-indigo-800/80">From admin foundations to HRMS implementation — structured so it still works at the next headcount milestone.</p>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">HR Admin</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Onboarding / Offboarding</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Employment Documentation</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Policies & Handbooks</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">SOPs</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Performance Management</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Employee Relations</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Disciplinary Documentation</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Leave & Attendance</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Payroll Support</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">HR Compliance</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">C&amp;B Admin</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Employee Data</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">HR Digitalisation</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">HRMS Implementation</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Org HR Review</span>
+                </div>
+                <button type="button" data-service="HR Services" class="service-cta mt-7 inline-flex items-center gap-2 rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-500 transition">
+                  Strengthen Your HR Operations
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- MARKETING -->
+          <article class="svc-card fade-up overflow-hidden rounded-3xl border border-slate-200 bg-white">
+            <div class="grid lg:grid-cols-12">
+              <div class="lg:col-span-4 relative min-h-[240px]">
+                <img src="https://images.pexels.com/photos/8154578/pexels-photo-8154578.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Marketing team collaborating on campaign work" class="absolute inset-0 h-full w-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-rose-950/80 via-rose-950/20 to-rose-950/10"></div>
+                <div class="absolute top-5 left-5">
+                  <span class="inline-flex items-center gap-2 rounded-full bg-rose-600 px-3 py-1 text-xs font-bold text-white">04 · Marketing</span>
+                </div>
+              </div>
+              <div class="lg:col-span-8 p-6 sm:p-8 lg:p-10">
+                <h3 class="text-2xl font-extrabold text-slate-900">Marketing Built Around Business Objectives</h3>
+                <p class="mt-3 text-slate-600 leading-relaxed">We treat marketing as an operating function, not a content factory. Strategy, content, campaigns, and brand communication are planned against commercial goals — then executed with the same discipline we apply to technology and operations.</p>
+                <div class="mt-5 rounded-2xl border border-rose-100 bg-rose-50 px-4 py-3">
+                  <p class="text-sm font-semibold text-rose-900">Strategy + Execution</p>
+                  <p class="mt-1 text-sm text-rose-800/80">A plan that can be run, measured, and adjusted — not a slide deck that sits unused.</p>
+                </div>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Social Media Management</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Social Content</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Digital Campaigns</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Marketing Strategy</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Content Planning</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Copywriting</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Campaign Execution</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Promotional Campaigns</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Brand Communication</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Marketing Materials</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Creative Coordination</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Customer Engagement</span>
+                  <span class="badge-chip rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">Digital Marketing Support</span>
+                </div>
+                <button type="button" data-service="Marketing Services" class="service-cta mt-7 inline-flex items-center gap-2 rounded-full bg-rose-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-rose-500 transition">
+                  Discuss Your Marketing Needs
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="why-us" class="py-20 lg:py-28 bg-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl fade-up">
+          <p class="text-sm font-semibold tracking-wide text-blue-600 uppercase">Why Textra Solution</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Built to work the way growing companies actually operate.</h2>
+          <p class="mt-4 text-slate-600">Not a catalogue of isolated services. A practical way to get technology, people, process, and growth moving in the same direction.</p>
+        </div>
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <article class="fade-up svc-card rounded-3xl border border-slate-200 bg-slate-50 p-7">
+            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-blue-600 text-white">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h10M4 18h7"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-extrabold text-slate-900">Integrated Expertise</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Technology, operations, people, and marketing under one roof — with shared context instead of four separate briefings.</p>
+          </article>
+          <article class="fade-up svc-card rounded-3xl border border-slate-200 bg-slate-50 p-7">
+            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-indigo-600 text-white">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-extrabold text-slate-900">Practical Solutions</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">We design around how your business actually works — constraints, tools, and people included — not an idealised process map.</p>
+          </article>
+          <article class="fade-up svc-card rounded-3xl border border-slate-200 bg-slate-50 p-7">
+            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-emerald-600 text-white">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-extrabold text-slate-900">Flexible Engagement</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Start with one function or several. Scale support up or down as demand, seasons, and headcount change.</p>
+          </article>
+          <article class="fade-up svc-card rounded-3xl border border-slate-200 bg-slate-50 p-7">
+            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-slate-800 text-white">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-extrabold text-slate-900">Process Driven</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Documented SOPs, clear ownership, and measurable delivery. Work that can be repeated, handed over, and improved.</p>
+          </article>
+          <article class="fade-up svc-card rounded-3xl border border-slate-200 bg-slate-50 p-7">
+            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-sky-600 text-white">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-extrabold text-slate-900">Technology Enabled</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Systems, automation, and integrations that reduce friction — so operations don’t depend on heroic manual effort.</p>
+          </article>
+          <article class="fade-up svc-card rounded-3xl border border-slate-200 bg-slate-50 p-7">
+            <div class="grid h-11 w-11 place-items-center rounded-2xl bg-rose-600 text-white">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-extrabold text-slate-900">Built for Growth</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">Structures that still hold when volume doubles. We build for the company you are becoming, not only the one you are today.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section id="how-we-work" class="py-20 lg:py-28 bg-slate-950 text-white relative overflow-hidden">
+      <div class="absolute inset-0 grid-overlay opacity-40"></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl fade-up">
+          <p class="text-sm font-semibold tracking-wide text-blue-300 uppercase">How We Work</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">A five-step path from messy brief to working operation.</h2>
+          <p class="mt-4 text-slate-300">We don’t start with a product catalogue. We start with the business problem, then build only what is needed to solve it.</p>
+        </div>
+
+        <div class="mt-12 relative">
+          <div class="hidden lg:block absolute top-[38px] left-[8%] right-[8%] h-0.5 step-line opacity-40 rounded-full"></div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <article class="fade-up rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <p class="text-xs font-bold tracking-[0.2em] text-blue-300">01</p>
+              <h3 class="mt-3 text-xl font-extrabold">Understand</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">We learn your business, constraints, customers, and the real work happening on the ground.</p>
+            </article>
+            <article class="fade-up rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <p class="text-xs font-bold tracking-[0.2em] text-indigo-300">02</p>
+              <h3 class="mt-3 text-xl font-extrabold">Analyse</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">We diagnose root causes — not just the visible symptom that landed in the inbox.</p>
+            </article>
+            <article class="fade-up rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <p class="text-xs font-bold tracking-[0.2em] text-sky-300">03</p>
+              <h3 class="mt-3 text-xl font-extrabold">Build</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">We design practical solutions around how you actually operate, then assemble the right mix of work.</p>
+            </article>
+            <article class="fade-up rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <p class="text-xs font-bold tracking-[0.2em] text-emerald-300">04</p>
+              <h3 class="mt-3 text-xl font-extrabold">Implement</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">We execute with clear ownership, documentation, and communication so nothing lives only in someone’s head.</p>
+            </article>
+            <article class="fade-up rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <p class="text-xs font-bold tracking-[0.2em] text-rose-300">05</p>
+              <h3 class="mt-3 text-xl font-extrabold">Improve</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">We refine based on results and operational feedback. Delivery is a loop, not a one-off handover.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE WORK WITH -->
+    <section id="who-we-work-with" class="py-20 lg:py-28 bg-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl fade-up">
+          <p class="text-sm font-semibold tracking-wide text-blue-600 uppercase">Who We Work With</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Companies that have outgrown patchwork support.</h2>
+          <p class="mt-4 text-slate-600">If you are building, scaling, or professionalising operations, you are in the right place.</p>
+        </div>
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="fade-up rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-bold text-slate-900">Startups</p>
+            <p class="mt-1 text-xs text-slate-500">Foundations without the overhead of a full internal stack.</p>
+          </div>
+          <div class="fade-up rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-bold text-slate-900">SMEs</p>
+            <p class="mt-1 text-xs text-slate-500">Practical capacity across functions that don’t yet need full departments.</p>
+          </div>
+          <div class="fade-up rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-bold text-slate-900">Growing Companies</p>
+            <p class="mt-1 text-xs text-slate-500">Systems and processes that keep up with volume and headcount.</p>
+          </div>
+          <div class="fade-up rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-bold text-slate-900">Digital Businesses</p>
+            <p class="mt-1 text-xs text-slate-500">Product, support, and marketing that need to run as one loop.</p>
+          </div>
+          <div class="fade-up rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-bold text-slate-900">E-Commerce</p>
+            <p class="mt-1 text-xs text-slate-500">Order flow, after-sales, and campaigns that stay in sync.</p>
+          </div>
+          <div class="fade-up rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-bold text-slate-900">Service-Based Companies</p>
+            <p class="mt-1 text-xs text-slate-500">Delivery operations, people systems, and client communication.</p>
+          </div>
+          <div class="fade-up rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-bold text-slate-900">Regional Businesses</p>
+            <p class="mt-1 text-xs text-slate-500">Multi-location operations that need consistent process and support.</p>
+          </div>
+          <div class="fade-up rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-bold text-slate-900">Building New Operations</p>
+            <p class="mt-1 text-xs text-slate-500">Standing up functions the right way the first time.</p>
+          </div>
+          <div class="fade-up rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-bold text-slate-900">Outsourcing Operational Functions</p>
+            <p class="mt-1 text-xs text-slate-500">Trusted capacity without losing brand and quality control.</p>
+          </div>
+          <div class="fade-up rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <p class="font-bold text-slate-900">Digital Transformation</p>
+            <p class="mt-1 text-xs text-slate-500">Technology change that includes people and process, not only tools.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH & PILLARS -->
+    <section id="approach" class="py-20 lg:py-28 bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl fade-up">
+          <p class="text-sm font-semibold tracking-wide text-blue-600 uppercase">Our Approach</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">We Don’t Just Deliver Services. We Solve Business Problems.</h2>
+          <p class="mt-4 text-slate-600 leading-relaxed">The request that arrives is rarely the full problem. We look across technology, people, process, and growth to find the cause — then we fix that, not only the symptom.</p>
+        </div>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-4">
+          <article class="fade-up rounded-3xl border border-slate-200 bg-white p-6">
+            <p class="text-xs font-bold uppercase tracking-wider text-blue-600">Diagnostic</p>
+            <h3 class="mt-2 text-lg font-extrabold text-slate-900">A tech problem may actually be a process problem.</h3>
+            <p class="mt-2 text-sm text-slate-600">If teams work around the system, another tool will not save it. We map the workflow first, then decide what to build.</p>
+          </article>
+          <article class="fade-up rounded-3xl border border-slate-200 bg-white p-6">
+            <p class="text-xs font-bold uppercase tracking-wider text-emerald-600">Diagnostic</p>
+            <h3 class="mt-2 text-lg font-extrabold text-slate-900">A customer service issue may actually be an HR and training issue.</h3>
+            <p class="mt-2 text-sm text-slate-600">Inconsistent answers usually point to missing SOPs, unclear ownership, or onboarding that never stuck.</p>
+          </article>
+          <article class="fade-up rounded-3xl border border-slate-200 bg-white p-6">
+            <p class="text-xs font-bold uppercase tracking-wider text-rose-600">Diagnostic</p>
+            <h3 class="mt-2 text-lg font-extrabold text-slate-900">A marketing problem may actually be a product or operations issue.</h3>
+            <p class="mt-2 text-sm text-slate-600">Campaigns cannot outrun slow fulfilment, unclear offers, or a site that cannot convert. We look at the whole path.</p>
+          </article>
+          <article class="fade-up rounded-3xl border border-slate-200 bg-white p-6">
+            <p class="text-xs font-bold uppercase tracking-wider text-indigo-600">Diagnostic</p>
+            <h3 class="mt-2 text-lg font-extrabold text-slate-900">A people problem may actually be a systems problem.</h3>
+            <p class="mt-2 text-sm text-slate-600">When HR admin lives in spreadsheets and inboxes, managers spend their time chasing files instead of leading teams.</p>
+          </article>
+        </div>
+
+        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <article class="fade-up rounded-3xl border border-blue-200 bg-gradient-to-b from-blue-50 to-white p-6">
+            <div class="h-10 w-10 rounded-2xl bg-blue-600 grid place-items-center text-white font-extrabold">T</div>
+            <h3 class="mt-4 font-extrabold text-slate-900">Technology</h3>
+            <p class="mt-2 text-sm text-slate-600">Build, integrate, and maintain the systems that carry the work.</p>
+          </article>
+          <article class="fade-up rounded-3xl border border-emerald-200 bg-gradient-to-b from-emerald-50 to-white p-6">
+            <div class="h-10 w-10 rounded-2xl bg-emerald-600 grid place-items-center text-white font-extrabold">P</div>
+            <h3 class="mt-4 font-extrabold text-slate-900">People</h3>
+            <p class="mt-2 text-sm text-slate-600">Support teams and HR operations that represent the company well.</p>
+          </article>
+          <article class="fade-up rounded-3xl border border-indigo-200 bg-gradient-to-b from-indigo-50 to-white p-6">
+            <div class="h-10 w-10 rounded-2xl bg-indigo-600 grid place-items-center text-white font-extrabold">P</div>
+            <h3 class="mt-4 font-extrabold text-slate-900">Process</h3>
+            <p class="mt-2 text-sm text-slate-600">SOPs, ownership, and operating rhythm so work is repeatable.</p>
+          </article>
+          <article class="fade-up rounded-3xl border border-rose-200 bg-gradient-to-b from-rose-50 to-white p-6">
+            <div class="h-10 w-10 rounded-2xl bg-rose-600 grid place-items-center text-white font-extrabold">G</div>
+            <h3 class="mt-4 font-extrabold text-slate-900">Growth</h3>
+            <p class="mt-2 text-sm text-slate-600">Marketing and commercial execution tied to how the business runs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOM BANNER -->
+    <section class="py-8 bg-slate-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="fade-up relative overflow-hidden rounded-3xl bg-slate-900 px-6 py-10 sm:px-10 lg:px-14">
+          <img src="https://images.pexels.com/photos/13219418/pexels-photo-13219418.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" class="absolute inset-0 h-full w-full object-cover opacity-25" />
+          <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-900/60"></div>
+          <div class="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div class="max-w-xl">
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Don’t See Exactly What You Need?</h2>
+              <p class="mt-3 text-slate-300">Most of our best work sits between functions — a system plus a support team, HR plus digitalisation, marketing plus operations. Tell us the outcome. We’ll shape the mix.</p>
+            </div>
+            <button type="button" data-service="Other" class="service-cta shrink-0 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-100 transition">
+              Request a Custom Solution
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 lg:py-28 bg-white">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-5 fade-up">
+            <p class="text-sm font-semibold tracking-wide text-blue-600 uppercase">Talk to Us</p>
+            <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Tell us what you are trying to solve.</h2>
+            <p class="mt-4 text-slate-600 leading-relaxed">Share a short brief. We’ll come back with a practical next step — not a 40-page proposal unless you actually need one.</p>
+
+            <div class="mt-8 space-y-4">
+              <div class="flex gap-3">
+                <div class="h-10 w-10 rounded-2xl bg-blue-50 grid place-items-center text-blue-600 shrink-0">
+                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-slate-900">hello@textrasolution.com</p>
+                  <p class="text-sm text-slate-500">Enquiries and new briefs</p>
+                </div>
+              </div>
+              <div class="flex gap-3">
+                <div class="h-10 w-10 rounded-2xl bg-indigo-50 grid place-items-center text-indigo-600 shrink-0">
+                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Response within 1–2 business days</p>
+                  <p class="text-sm text-slate-500">Monday to Friday, business hours</p>
+                </div>
+              </div>
+              <div class="flex gap-3">
+                <div class="h-10 w-10 rounded-2xl bg-emerald-50 grid place-items-center text-emerald-600 shrink-0">
+                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <div>
+                  <p class="text-sm font-bold text-slate-900">No obligation conversation</p>
+                  <p class="text-sm text-slate-500">We’ll tell you honestly if we are not the right fit</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 fade-up">
+            <form id="contactForm" class="rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8 shadow-sm" novalidate>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="fullName" class="block text-sm font-semibold text-slate-700">Full Name</label>
+                  <input id="fullName" name="fullName" type="text" required autocomplete="name" class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm" placeholder="Jane Tan" />
+                  <p class="error-msg mt-1 hidden text-xs font-medium text-rose-600">Please enter your name.</p>
+                </div>
+                <div>
+                  <label for="company" class="block text-sm font-semibold text-slate-700">Company Name</label>
+                  <input id="company" name="company" type="text" required autocomplete="organization" class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm" placeholder="Acme Pte Ltd" />
+                  <p class="error-msg mt-1 hidden text-xs font-medium text-rose-600">Please enter your company.</p>
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-slate-700">Email Address</label>
+                  <input id="email" name="email" type="email" required autocomplete="email" class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm" placeholder="jane@company.com" />
+                  <p class="error-msg mt-1 hidden text-xs font-medium text-rose-600">Please enter a valid email.</p>
+                </div>
+                <div>
+                  <label for="phone" class="block text-sm font-semibold text-slate-700">Phone Number</label>
+                  <input id="phone" name="phone" type="tel" required autocomplete="tel" class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm" placeholder="+65 9000 0000" />
+                  <p class="error-msg mt-1 hidden text-xs font-medium text-rose-600">Please enter a phone number.</p>
+                </div>
+              </div>
+              <div class="mt-4">
+                <label for="service" class="block text-sm font-semibold text-slate-700">Service Required</label>
+                <select id="service" name="service" required class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm">
+                  <option value="">Select a service</option>
+                  <option value="IT Development">IT Development</option>
+                  <option value="Customer Service Outsourcing">Customer Service Outsourcing</option>
+                  <option value="HR Services">HR Services</option>
+                  <option value="Marketing Services">Marketing Services</option>
+                  <option value="Multiple Services">Multiple Services</option>
+                  <option value="Other">Other</option>
+                </select>
+                <p class="error-msg mt-1 hidden text-xs font-medium text-rose-600">Please select a service.</p>
+              </div>
+              <div class="mt-4">
+                <label for="requirements" class="block text-sm font-semibold text-slate-700">Requirements</label>
+                <textarea id="requirements" name="requirements" required rows="5" class="mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm resize-y" placeholder="What are you trying to solve? Timeline, current setup, and any constraints are helpful."></textarea>
+                <p class="error-msg mt-1 hidden text-xs font-medium text-rose-600">Please tell us a little about your requirements.</p>
+              </div>
+              <button id="submitBtn" type="submit" class="mt-6 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-500 transition disabled:opacity-70">
+                <span id="btnLabel">Send Enquiry</span>
+                <span id="btnSpin" class="spin hidden"></span>
+              </button>
+              <p class="mt-3 text-xs text-slate-500">By submitting, you agree to be contacted about this enquiry. We do not sell your information.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-300">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-5">
+          <a href="#top" class="flex items-center gap-2.5">
+            <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M2 4h14M9 4v11" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="text-white font-extrabold">Textra Solution</span>
+          </a>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">Practical solutions built around your business. Integrated execution across technology, customer service, HR, and marketing.</p>
+          <p class="mt-4 text-sm font-semibold text-slate-200">Technology. People. Process. Growth.</p>
+        </div>
+        <div class="lg:col-span-2">
+          <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Services</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="#services" class="hover:text-white transition">IT Development</a></li>
+            <li><a href="#services" class="hover:text-white transition">Customer Service</a></li>
+            <li><a href="#services" class="hover:text-white transition">HR Services</a></li>
+            <li><a href="#services" class="hover:text-white transition">Marketing</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-2">
+          <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Company</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="#about" class="hover:text-white transition">About</a></li>
+            <li><a href="#why-us" class="hover:text-white transition">Why Us</a></li>
+            <li><a href="#how-we-work" class="hover:text-white transition">How We Work</a></li>
+            <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-3">
+          <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Legal</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li><a href="#legal-privacy" class="hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#legal-terms" class="hover:text-white transition">Terms of Service</a></li>
+            <li><a href="#contact" class="hover:text-white transition">Enquire</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-white/10 pt-6 text-xs text-slate-500">
+        <p>© 2026 Textra Solution. All rights reserved.</p>
+        <p>Practical solutions. Integrated delivery.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Success modal -->
+  <div id="modal" class="modal-root fixed inset-0 z-[70] grid place-items-center px-4" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div id="modalBackdrop" class="absolute inset-0 bg-slate-950/50 backdrop-blur-sm"></div>
+    <div class="modal-card relative w-full max-w-md rounded-3xl border border-slate-200 bg-white p-7 shadow-2xl">
+      <div class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-emerald-50 text-emerald-600">
+        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h3 id="modalTitle" class="mt-4 text-center text-xl font-extrabold text-slate-900">Enquiry received</h3>
+      <p class="mt-2 text-center text-sm text-slate-600">Thank you. A Textra Solution specialist will review your brief and get back to you within 1–2 business days.</p>
+      <button id="closeModal" type="button" class="mt-6 w-full rounded-full bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 transition">Close</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const nav = document.getElementById("nav");
+      const menuBtn = document.getElementById("menuBtn");
+      const closeMenu = document.getElementById("closeMenu");
+      const drawer = document.getElementById("drawer");
+      const overlay = document.getElementById("overlay");
+      const bar1 = document.getElementById("bar1");
+      const bar2 = document.getElementById("bar2");
+      const bar3 = document.getElementById("bar3");
+      const form = document.getElementById("contactForm");
+      const serviceSelect = document.getElementById("service");
+      const submitBtn = document.getElementById("submitBtn");
+      const btnLabel = document.getElementById("btnLabel");
+      const btnSpin = document.getElementById("btnSpin");
+      const modal = document.getElementById("modal");
+      const closeModal = document.getElementById("closeModal");
+      const modalBackdrop = document.getElementById("modalBackdrop");
+
+      function setNavState() {
+        if (window.scrollY > 24) nav.classList.add("nav-scrolled");
+        else nav.classList.remove("nav-scrolled");
+      }
+      setNavState();
+      window.addEventListener("scroll", setNavState, { passive: true });
+
+      function openDrawer() {
+        drawer.classList.add("open");
+        overlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+        menuBtn.setAttribute("aria-expanded", "true");
+        bar1.style.transform = "translateY(8px) rotate(45deg)";
+        bar2.style.opacity = "0";
+        bar3.style.transform = "translateY(-8px) rotate(-45deg)";
+      }
+      function closeDrawer() {
+        drawer.classList.remove("open");
+        overlay.classList.remove("open");
+        document.body.style.overflow = "";
+        menuBtn.setAttribute("aria-expanded", "false");
+        bar1.style.transform = "";
+        bar2.style.opacity = "";
+        bar3.style.transform = "";
+      }
+      menuBtn.addEventListener("click", function () {
+        if (drawer.classList.contains("open")) closeDrawer();
+        else openDrawer();
+      });
+      closeMenu.addEventListener("click", closeDrawer);
+      overlay.addEventListener("click", closeDrawer);
+      document.querySelectorAll(".drawer-link").forEach(function (link) {
+        link.addEventListener("click", closeDrawer);
+      });
+
+      function goToContact(serviceValue) {
+        if (serviceValue) {
+          serviceSelect.value = serviceValue;
+          serviceSelect.dispatchEvent(new Event("change"));
+        }
+        document.getElementById("contact").scrollIntoView({ behavior: "smooth", block: "start" });
+        setTimeout(function () {
+          serviceSelect.focus({ preventScroll: true });
+        }, 500);
+      }
+
+      document.querySelectorAll(".service-cta").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          goToContact(btn.getAttribute("data-service"));
+        });
+      });
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+      document.querySelectorAll(".fade-up").forEach(function (el, i) {
+        el.style.transitionDelay = (i % 6) * 60 + "ms";
+        observer.observe(el);
+      });
+
+      function showError(input, show) {
+        const msg = input.parentElement.querySelector(".error-msg");
+        if (msg) msg.classList.toggle("hidden", !show);
+        input.classList.toggle("border-rose-400", show);
+      }
+
+      function validEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const fields = {
+          fullName: document.getElementById("fullName"),
+          company: document.getElementById("company"),
+          email: document.getElementById("email"),
+          phone: document.getElementById("phone"),
+          service: serviceSelect,
+          requirements: document.getElementById("requirements")
+        };
+        let ok = true;
+        Object.keys(fields).forEach(function (key) {
+          const el = fields[key];
+          let good = el.value.trim().length > 0;
+          if (key === "email") good = validEmail(el.value.trim());
+          showError(el, !good);
+          if (!good) ok = false;
+        });
+        if (!ok) return;
+
+        submitBtn.disabled = true;
+        btnLabel.textContent = "Sending…";
+        btnSpin.classList.remove("hidden");
+
+        setTimeout(function () {
+          form.reset();
+          submitBtn.disabled = false;
+          btnLabel.textContent = "Send Enquiry";
+          btnSpin.classList.add("hidden");
+          modal.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }, 900);
+      });
+
+      ["fullName", "company", "email", "phone", "service", "requirements"].forEach(function (id) {
+        document.getElementById(id).addEventListener("input", function () {
+          showError(this, false);
+        });
+      });
+
+      function hideModal() {
+        modal.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      closeModal.addEventListener("click", hideModal);
+      modalBackdrop.addEventListener("click", hideModal);
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          hideModal();
+          closeDrawer();
+        }
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener("click", function (e) {
+          const id = a.getAttribute("href");
+          if (!id || id === "#") return;
+          const target = document.querySelector(id);
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
