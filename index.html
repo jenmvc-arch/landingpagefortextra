@@ -79,6 +79,18 @@
     .nav-scrolled .brand-word { color: #0f172a; }
     .nav-scrolled .brand-sub { color: #64748b; }
     .nav-scrolled .hamburger span { background: #0f172a; }
+    .site-logo {
+      display: block;
+      width: 184px;
+      height: 60px;
+      object-fit: contain;
+      object-position: left center;
+    }
+    .footer-logo {
+      width: 220px;
+      height: 72px;
+      object-position: left center;
+    }
 
     .drawer {
       transform: translateX(100%);
@@ -143,16 +155,8 @@
   <header id="nav" class="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-slate-950/40 backdrop-blur-md transition-all duration-300">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 lg:h-[72px] items-center justify-between">
-        <a href="#top" class="flex items-center gap-2.5 group">
-          <span class="relative grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-500/25">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <path d="M2 4h14M9 4v11" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </span>
-          <span class="leading-tight">
-            <span class="brand-word block text-[15px] font-extrabold tracking-tight text-white">Textra Solution</span>
-            <span class="brand-sub hidden sm:block text-[10px] font-medium tracking-wide text-slate-400">Technology · People · Process · Growth</span>
-          </span>
+        <a href="#top" class="flex items-center group" aria-label="Textra Solution home">
+          <img class="site-logo" src="textra-new-logo.svg" alt="Textra Solution" />
         </a>
 
         <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">
@@ -864,16 +868,22 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
       <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10">
         <div class="lg:col-span-5">
-          <a href="#top" class="flex items-center gap-2.5">
-            <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                <path d="M2 4h14M9 4v11" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span class="text-white font-extrabold">Textra Solution</span>
+          <a href="#top" class="flex items-center" aria-label="Textra Solution home">
+            <img class="site-logo footer-logo" src="textra-new-logo.svg" alt="Textra Solution" />
           </a>
           <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">Practical solutions built around your business. Integrated execution across technology, customer service, HR, and marketing.</p>
           <p class="mt-4 text-sm font-semibold text-slate-200">Technology. People. Process. Growth.</p>
+          <div class="mt-6 max-w-xl border-t border-white/10 pt-5">
+            <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Company Information</p>
+            <dl class="mt-3 grid grid-cols-[7.5rem_1fr] gap-x-3 gap-y-2 text-xs leading-relaxed text-slate-400">
+              <dt class="font-semibold text-slate-300">NAMA PERNIAGAAN</dt>
+              <dd>TEXTRA SOLUTION</dd>
+              <dt class="font-semibold text-slate-300">NO PENDAFTARAN</dt>
+              <dd>202103170069 (KT0498953-M)</dd>
+              <dt class="font-semibold text-slate-300">ALAMAT UTAMA PERNIAGAAN</dt>
+              <dd>1-06-10, PLAZA BUKIT JALIL (AURORA SOVO)<br />NO. 1, PERSIARAN JALIL 1,<br />57000 KUALA LUMPUR<br />WILAYAH PERSEKUTUAN</dd>
+            </dl>
+          </div>
         </div>
         <div class="lg:col-span-2">
           <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Services</p>
