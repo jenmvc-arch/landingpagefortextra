@@ -91,6 +91,25 @@
       height: 72px;
       object-position: left center;
     }
+    .header-logo-light {
+      width: 270px;
+      height: 60px;
+      object-fit: contain;
+      object-position: left center;
+    }
+    .header-logo-dark {
+      display: none;
+      width: 270px;
+      height: 60px;
+      object-fit: contain;
+      object-position: left center;
+    }
+    .nav-scrolled .header-logo-light {
+      display: none;
+    }
+    .nav-scrolled .header-logo-dark {
+      display: block;
+    }
 
     .drawer {
       transform: translateX(100%);
@@ -156,7 +175,8 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 lg:h-[72px] items-center justify-between">
         <a href="#top" class="flex items-center group" aria-label="Textra Solution home">
-          <img class="site-logo" src="textra-new-logo.svg" alt="Textra Solution" />
+          <img class="header-logo-light" src="textra-logo-light.png" alt="Textra Solution" />
+          <img class="header-logo-dark" src="textra-logo-dark.png" alt="" aria-hidden="true" />
         </a>
 
         <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">
@@ -869,7 +889,7 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10">
         <div class="lg:col-span-5">
           <a href="#top" class="flex items-center" aria-label="Textra Solution home">
-            <img class="site-logo footer-logo" src="textra-new-logo.svg" alt="Textra Solution" />
+            <img class="site-logo footer-logo" src="textra-logo-light.png" alt="Textra Solution" />
           </a>
           <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">Practical solutions built around your business. Integrated execution across technology, customer service, HR, and marketing.</p>
           <p class="mt-4 text-sm font-semibold text-slate-200">Technology. People. Process. Growth.</p>
